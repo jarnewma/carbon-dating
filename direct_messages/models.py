@@ -2,7 +2,7 @@ from django.db import models
 from author.models import Author
 
 
-class Messages(models.Model):
+class Message(models.Model):
     sender = models.ForeignKey(
         Author,
         related_name="sender",

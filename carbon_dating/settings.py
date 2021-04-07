@@ -41,10 +41,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'direct_messages'
     'author',
     'authentication',
     'post',
+    'direct_messages',
     'comment',
     'new_admirers',
     'multiselectfield',
