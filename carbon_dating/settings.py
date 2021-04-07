@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'authentification',
     'post',
-    'comment'
+    'comment',
+    'new_admirers',
 ]
 
 MIDDLEWARE = [
