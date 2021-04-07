@@ -1,8 +1,8 @@
 from django.db import models
-from customuser.models import CustomUser
+from author.models import Author
 
 
 class NewAdmirer(models.Model):
-    admirer = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
-    admiring = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    admirer = models.ForeignKey(Author, on_delete=models.CASCADE)
+    admiring = models.ForeignKey(Author, on_delete=models.CASCADE)
     viewed = models.BooleanField(default=False)

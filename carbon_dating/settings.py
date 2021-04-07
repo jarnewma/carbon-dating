@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     'authentification',
     'post',
     'comment',
-    'new_admirers',
+    'new_admirers'
 ]
 
 MIDDLEWARE = [
