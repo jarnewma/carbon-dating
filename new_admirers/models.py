@@ -3,6 +3,6 @@ from author.models import Author
 
 
 class NewAdmirer(models.Model):
-    admirer = models.ForeignKey(Author, on_delete=models.CASCADE)
-    admiring = models.ForeignKey(Author, on_delete=models.CASCADE)
+    admirer = models.ForeignKey(Author, on_delete=models.CASCADE, related_name="new_admirer")
+    admiring = models.ForeignKey(Author, on_delete=models.CASCADE, related_name="new_admiring")
     viewed = models.BooleanField(default=False)
