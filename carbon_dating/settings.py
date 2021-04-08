@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'author',
     'authentication',
     'post',
+    'direct_messages',
     'comment',
     'new_admirers',
     'multiselectfield',
