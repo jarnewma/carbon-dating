@@ -1,5 +1,5 @@
 {
-    "python.pythonPath": "/Users/Jason/Library/Caches/pypoetry/virtualenvs/carbon-dating-REPRzK9q-py3.9/bin/python",
+    "python.pythonPath": "/home/ajrod/.pyenv/versions/3.7.2/bin/python",
     "python.linting.flake8Enabled": true,
     "python.linting.pylintEnabled": false,
     "python.linting.enabled": true

@@ -10,11 +10,12 @@ Django = "^3.1.7"
 django-environ = "^0.4.5"
 
 [tool.poetry.dev-dependencies]
-flake8 = "^3.9.0"
 django-select-multiple-field = "^0.4.2"
 django-multiselectfield = "^0.1.12"
 Pillow = "^8.2.0"
 autopep8 = "^1.5.6"
+flake8 = "^3.9.0"
+
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
