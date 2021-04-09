@@ -1,14 +1,21 @@
 {% extends 'base.html' %}
+{% include navbar %}
+
+{% load static %}
 
 {% block title %}Home{% endblock %}
-
 {% block content %}
+
+
+
 {% if user.is_authenticated %}
   Hi {{ user.username }}!
-  <p><a href="{% url 'logout' %}">Log Out</a></p>
+  
+
+  <img src="{{user.profilepic.url}}" width="100px" height="100px">
 {% else %}
   <p>You are not logged in</p>
   <a href="{% url 'login' %}">Log In</a> |
   <a href="{% url 'signup' %}">Sign Up</a>
 {% endif %}
-{% endblock %}
+    {% endblock %}
