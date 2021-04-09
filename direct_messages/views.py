@@ -11,3 +11,8 @@ class MessagesView(LoginRequiredMixin, View):
 
     def post(self, request):
         pass
+
+
+class AllMessages(LoginRequiredMixin, View):
+    def get(self, request):
+        pass
