@@ -1,7 +1,11 @@
 from django.shortcuts import render
-
+from author.models import Author
 # Create your views here.
 
 
-def home_view(request):
-    return render(request, 'home.html')
+def author_profile(request, user_id):
+    user_obj = Author.objeccts.get(id=user_id)
+
+    return render(request, "author_detail.html",{
+        "author_info": user_obj
+    })
