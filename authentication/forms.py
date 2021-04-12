@@ -12,7 +12,8 @@ class AuthorCreationForm(UserCreationForm):
 
     class Meta:
         model = Author
-        fields = ('rock_type',
+        fields = ('username',
+                  'rock_type',
                   'interested_in',
                   'bio',
                   'birthday',

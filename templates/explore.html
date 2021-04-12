@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% include navbar %}
+
+{% load static %}
+
+{% block content %}
+
+
+
+{% if user.is_authenticated %}
+<title>Explore</title>
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/explore.css' %}">
+
+<div class="wrapper">
+  <section class="columns">
+    <div class="column left border-end border-secondary">
+      <h1 class="display-3" style="text-align:center;"><u>{{user.username}}</u></h1>
+      <img class="avatar" alt="avatar" src="{{user.profilepic.url}}">
+    </div>
+
+    <div class="column border-end border-secondary" style="min-height: min-content;" >
+
+      
+      {% for user in users %}
+        <h1 class="display-3" style="text-align:center;"><u>{{user.username}}</u></h1>
+        <img src="{{user.profilepic.url}}" alt="posts" class="rounded mx-auto d-block post-img">
+        <div class="rock-type">
+        <u><p class="h4">Rock type</p></u>      
+         <p class="h6">{{user.rock_type}}</p>
+        </div>
+        <div class="interested-in">
+        <u><p class="h4">Interested In</p></u>      
+         <p class="h6">{{user.interested_in}}</p>
+        </div>
+        {% endfor %}
+        <div class="heart-button"><button type="button" class="btn btn-outline-danger btn-lg">Admire <i class="fa fa-heart"></i></button>
+        </div>
+        <div class="skip-button">
+        <button type="button" class="btn btn-outline-success btn-lg">Skip <i class="fa fa-forward"></i></button>
+        </div>
+    </div>
+    
+
+    <div class="column">
+     <h1 class="display-3" style="text-align:center;"><u>Recent Matches</u></h1>
+     {% for u in user.admirers.all %}
+        <div class="recent-matches">
+        
+        <p class="h4" style="text-align:center;"><u>{{u.username}}</u></p>
+        <br>
+        <img class="avatar" alt="avatar" src="{{u.profilepic.url}}">
+        
+        </div>
+     {% endfor %}
+    </div>
+      
+  </section> 
+
+
+
+  
+  
+  
+  
+  {% comment %} Hi {{ user.username }}!
+  
+
+  <img src="{{user.profilepic.url}}" width="100px" height="100px"> {% endcomment %}
+{% endif %}
+    {% endblock %}
