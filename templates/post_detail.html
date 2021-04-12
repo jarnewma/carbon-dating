@@ -1,7 +1,6 @@
 <div column-sm">
     <div class="card p-2">
-        <h5 class="card-title">Tweeter: <a href="/user/{{post.author.id }}">@{{tweet.author.username}}</h5>
-        <a href="/posts/post/{{ post.id }}"> <p>{{ post.timestamp | date:"D M d Y" }} {{ tweet.created_at | time:"H:i" }} </p></a>
+        <a href="/posts/post/{{ post.id }}"> <p>{{ post.timestamp | date:"D M d Y" }} </p></a>
         <div class="card-body">
             <p>{{post.image}}</p>
             <p> {{post.caption}} </p>

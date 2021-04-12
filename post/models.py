@@ -5,7 +5,7 @@ from author.models import Author
 
 class Post(models.Model):
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
-    caption = models.CharField(max_length=140)
+    caption = models.CharField(max_length=140, default='')
     image = models.ImageField(
         upload_to="images/",
         height_field=None,
