@@ -8,6 +8,7 @@ authors = ["Jason <jarnewma@gmail.com>"]
 python = "^3.9"
 Django = "^3.1.7"
 django-environ = "^0.4.5"
+Pillow = "^8.2.0"
 
 [tool.poetry.dev-dependencies]
 django-select-multiple-field = "^0.4.2"
