@@ -17,18 +17,20 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
-from author.views import home_view, explore_view, admire_view 
-from authentication.views import SignUpView
+# from author.views import home_view, explore_view
+from author import views as author_views
+# from authentication.views import SignUpView
+from authentication import views as authentication_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', home_view, name='homepage'),
+    path('', author_views.home_view, name='homepage'),
     path('', include('django.contrib.auth.urls')),
-    path('explore/', explore_view, name="explore"),
-    path('signup/', SignUpView.as_view(), name='signup'),
+    path('explore/', author_views.explore_view, name="explore"),
+    path('signup/', authentication_views.SignUpView.as_view(), name='signup'),
     path('posts/', include('post.urls')),
-    path('accounts/', include('django.contrib.auth.urls')),
-    path('admire/<int:user_id>/', admire_view)
+    path('author_profile/<int:user_id>/', author_views.author_profile, name="author_profile"),
+    path('admire/<int:user_id>/', author_views.admire_view),
 ]
 
 if settings.DEBUG:
