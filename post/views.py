@@ -4,6 +4,7 @@ from .models import Author
 from post.forms import PostForm
 # from .models import NewAdmirer
 from django.utils import timezone
+from django.shortcuts import get_object_or_404
 
 
 def post_detail(request, id):
@@ -18,7 +19,10 @@ def new_post(request):
             data = form.cleaned_data
             time = timezone.now()
             new_post = Post.objects.create(
-                author=Author.objects.get(username=request.user.username),
+                author=get_object_or_404(
+                    Author,
+                    username=request.user.username
+                    ),
                 caption=data["caption"],
                 image=data['image'],
                 timestamp=time
