@@ -153,4 +153,4 @@ LOGIN_REDIRECT_URL = 'homepage'
 LOGOUT_REDIRECT_URL = 'homepage'
 
 
-LOGIN_URL = 'login/'
+LOGIN_URL = '/login/'

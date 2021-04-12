@@ -22,14 +22,14 @@ from author import views as author_views
 # from authentication.views import SignUpView
 from authentication import views as authentication_views
 
-
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', author_views.home_view, name='homepage'),
+    path('', include('django.contrib.auth.urls')),
     path('explore/', author_views.explore_view, name="explore"),
     path('signup/', authentication_views.SignUpView.as_view(), name='signup'),
-    path('', include('django.contrib.auth.urls')),
     path('posts/', include('post.urls')),
+    path('author_profile/<int:user_id>/', author_views.author_profile, name="author_profile"),
 ]
 
 if settings.DEBUG:
