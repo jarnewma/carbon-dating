@@ -13,13 +13,14 @@ def post_detail(request, id):
 
 def new_post(request):
     if request.method == "POST":
-        form = PostForm(request.POST)
+        form = PostForm(request.POST, request.FILES)
         if form.is_valid():
             data = form.cleaned_data
             time = timezone.now()
             new_post = Post.objects.create(
                 author=Author.objects.get(username=request.user.username),
                 caption=data["caption"],
+                image=data['image'],
                 timestamp=time
             )
             new_post.save()
