@@ -1,14 +1,65 @@
 {% extends 'base.html' %}
+{% include navbar %}
+
+{% load static %}
 
 {% block title %}Home{% endblock %}
-
 {% block content %}
+
+
+
 {% if user.is_authenticated %}
-  Hi {{ user.username }}!
-  <p><a href="{% url 'logout' %}">Log Out</a></p>
-{% else %}
-  <p>You are not logged in</p>
-  <a href="{% url 'login' %}">Log In</a> |
-  <a href="{% url 'signup' %}">Sign Up</a>
+<title>{{user.username}}'s Homepage</title>
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
+
+<div class="wrapper">
+  <section class="columns">
+    <div class="column left border-end border-secondary">
+      <h1 class="display-3" style="text-align:center;"><u>{{user.username}}</u></h1>
+      <img class="avatar" alt="avatar" src="{{user.profilepic.url}}">
+      
+      <div class="button-list">
+      <button type="button" class="btn btn-outline-dark btn-lg">Explore <i class="fa fa-arrow-right" aria-hidden="true"></i></button>
+      </div>
+      <div class="button-list">
+      <button type="button" class="btn btn-outline-dark btn-lg">Chats <i class="fa fa-arrow-right" aria-hidden="true"></i></button>
+      
+      </div>
+    </div>
+
+    <div class="column border-end border-secondary" style="min-height: min-content;" >
+      <h1 class="display-3" style="text-align:center;"><u>Recent Posts</u></h1>
+      {% for p in posts %}
+      <ul style="list-style-type:none">
+      <li><img src="{{p.image.url}}" alt="posts" class="img-thumbnail post-img"></li>
+      </ul>
+      {% endfor %}
+    </div>
+
+    <div class="column">
+      <h1 class="display-3" style="text-align:center;"><u>Recent Activity</u></h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel placerat arcu, scelerisque vestibulum ante. Morbi laoreet vel risus a placerat. Duis vestibulum lorem eu aliquam placerat. Suspendisse cursus diam in enim egestas vulputate. Etiam a massa laoreet, aliquet sapien id, egestas quam. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Morbi nibh mi, tincidunt varius egestas nec, egestas suscipit arcu. Phasellus tincidunt ultrices risus non consectetur. Cras mattis luctus tortor, nec ultrices leo vulputate ut. Donec et eleifend lorem. Maecenas elementum magna sit amet erat tempor pulvinar. Etiam quis ligula pharetra, faucibus nunc et, consequat ante. Vestibulum mattis dictum facilisis. Praesent tellus libero, placerat ut pellentesque quis, pulvinar vitae risus. Donec ultricies auctor mi, eleifend ullamcorper libero feugiat non. In velit ipsum, placerat id dictum sit amet, cursus eget ex.
+
+Fusce auctor turpis et consectetur porta. Pellentesque cursus sapien eget neque faucibus ultrices. Sed quis viverra tortor. Duis rhoncus faucibus dolor, sit amet elementum lorem hendrerit sed. Ut in lacus varius, imperdiet ex ut, fermentum quam. Aliquam ac luctus ex. Fusce id mollis mauris, nec blandit mi. Proin blandit pulvinar diam, non tempus dolor gravida vel. Maecenas sed justo et urna aliquet tempus. Fusce tincidunt hendrerit nunc, nec lobortis diam tempor nec. Donec sit amet egestas ante. Vivamus placerat facilisis dignissim. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nulla aliquet metus in sem imperdiet, ac efficitur quam laoreet.
+
+Curabitur blandit purus eget enim aliquam, sit amet scelerisque est suscipit. Fusce vulputate massa nec sapien convallis, id luctus ante elementum. Aenean tempor dapibus consectetur. Cras nec blandit dui, in convallis orci. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Vivamus tortor mauris, vehicula nec efficitur vitae, tristique in ante. Nam tempus orci nec ex malesuada aliquet. Nullam rhoncus lorem sit amet augue fringilla aliquam varius ac massa. Duis libero quam, dapibus varius iaculis nec, venenatis sit amet ex. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nullam eget tellus sed quam varius placerat.
+
+Aenean in scelerisque quam. Phasellus dignissim erat in purus scelerisque sollicitudin. Nam non risus eu nibh egestas dapibus quis feugiat nulla. Sed ex sem, ullamcorper quis lorem bibendum, faucibus commodo enim. Nullam nulla libero, vestibulum vehicula lacus sed, malesuada ultricies velit. Morbi posuere facilisis bibendum. Praesent tincidunt lorem eget quam tincidunt convallis. Morbi laoreet aliquam magna, at luctus eros accumsan eu. Etiam mattis fermentum risus, ac luctus leo luctus vel. Sed ultrices lorem tellus, eget congue quam tincidunt non. Quisque eu enim eu nisl sagittis mattis sed a neque.
+
+Duis mollis lectus sit amet erat cursus, ut consequat nisl tempus. Sed at egestas nibh. Nulla eget semper mauris. Duis sagittis, mauris sit amet volutpat sodales, nulla tellus rhoncus nisl, et tempor turpis velit vitae leo. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Ut eleifend varius orci sit amet gravida. Etiam pharetra turpis tellus, nec convallis felis placerat eget.</p>
+    </div>
+  </section>
+
+
+
+  
+  
+  
+  
+  {% comment %} Hi {{ user.username }}!
+  
+
+  <img src="{{user.profilepic.url}}" width="100px" height="100px"> {% endcomment %}
 {% endif %}
-{% endblock %}
+    {% endblock %}
