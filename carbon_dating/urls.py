@@ -17,9 +17,8 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
-from author.views import home_view, explore_view
+from author.views import home_view, explore_view, admire_view 
 from authentication.views import SignUpView
-
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -27,6 +26,7 @@ urlpatterns = [
     path('explore/', explore_view, name="explore"),
     path('signup/', SignUpView.as_view(), name='signup'),
     path('accounts/', include('django.contrib.auth.urls')),
+    path('admire/<int:user_id>/', admire_view)
 ]
 
 if settings.DEBUG:
