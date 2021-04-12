@@ -1,3 +1,7 @@
+# Misc.
+.vscode/
+carbon_dating/__pycache__/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -127,3 +131,5 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+db_name

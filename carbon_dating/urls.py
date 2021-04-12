@@ -26,7 +26,8 @@ urlpatterns = [
     path('', home_view, name='homepage'),
     path('explore/', explore_view, name="explore"),
     path('signup/', SignUpView.as_view(), name='signup'),
-    path('accounts/', include('django.contrib.auth.urls')),
+    path('', include('django.contrib.auth.urls')),
+    path('posts/', include('post.urls')),
 ]
 
 if settings.DEBUG:
