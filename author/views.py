@@ -16,7 +16,11 @@ def home_view(request):
 
 
 def explore_view(request):
-    users = Author.objects.all()
+    interested_in = list(request.user.interested_in)
+    # print(interested_in)
+    # print(Author.objects.filter(rock_type__in=interested_in))
+    
+    users = Author.objects.filter(rock_type__in=interested_in)
     matches = Author.objects.all()
     context = {
         "users": users,
