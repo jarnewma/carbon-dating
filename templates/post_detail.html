@@ -1,3 +1,14 @@
+{% extends 'base.html' %}
+{% include navbar %}
+
+{% load static %}
+
+{% block title %}Create a Post{% endblock %}
+{% block content %}
+
+
+
+{% if user.is_authenticated %}
 <div column-sm">
     <div class="card p-2">
         <a href="/posts/post/{{ post.id }}"> <p>{{ post.timestamp | date:"D M d Y" }} </p></a>
@@ -5,12 +16,14 @@
             <p>{{post.image}}</p>
             <p> {{post.caption}} </p>
 
-            {% if img_obj %}
-            <h3>Succesfully uploaded : {{img_obj.title}}</h3>
-            <img src="{{ img_obj.image.url}}" alt="connect" style="max-height:300px">
+            {% if image %}
+            <h3>Succesfully uploaded : {{image.title}}</h3>
+            <img src="{{ image.url}}" alt="connect" style="max-height:300px">
           {% endif %}
 
         </div>
     </div>
     <br>
 </div>
+{% endif %}
+{% endblock %}

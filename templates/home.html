@@ -61,5 +61,9 @@ Duis mollis lectus sit amet erat cursus, ut consequat nisl tempus. Sed at egesta
   
 
   <img src="{{user.profilepic.url}}" width="100px" height="100px"> {% endcomment %}
+{% else %}
+<h1>Not signed in</h1>
+<a href="accounts/login/">Log in</a>
 {% endif %}
+
     {% endblock %}
