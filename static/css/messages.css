@@ -1,0 +1,16 @@
+.user-match {
+    border-bottom: 1px solid black;
+    margin: 10px auto;
+    text-align: center;
+    padding: 20px;
+}
+
+.original-anchor {
+    color: blue;
+    transition: .2s;
+    
+}
+
+.original-anchor:hover {
+    font-size: 20px;
+}

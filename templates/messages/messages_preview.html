@@ -1,6 +1,19 @@
 {% extends 'base.html' %}
+{% include messages %}
 {% load static %}
 
 {% block content %}
-messages test
+<link rel="stylesheet" type="text/css" href="{% static 'css/messages.css' %}">
+
+<div id="matches-container">
+{% for match in matches %}
+
+<section class="user-match">
+<img height="100px" src={{match.profilepic.url}} alt="User image"/>
+<span>You have a match with {{match.username}}, <a class="original-anchor" href="/messages/{{match.username}}">click here to start messaging</a></span>
+</section>
+
+{% endfor %}
+</div>
+
 {% endblock content %}
