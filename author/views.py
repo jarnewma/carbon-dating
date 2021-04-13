@@ -1,12 +1,21 @@
 from django.shortcuts import render, redirect, HttpResponseRedirect, reverse
 from post.models import Post
 from author.models import Author
+from post.models import Post
 from django.contrib.auth.decorators import login_required
-
 # Create your views here.
 
 
-# @login_required
+@login_required
+def author_profile(request, user_id):
+    user_obj = Author.objects.get(id=user_id)
+
+    return render(request, "author_detail.html", {
+        "author_info": user_obj
+    })
+
+
+@login_required
 def home_view(request):
     posts = Post.objects.all()[:10]
     context = {
@@ -15,6 +24,7 @@ def home_view(request):
     return render(request, 'home.html', context)
 
 
+@login_required
 def explore_view(request):
     interested_in = list(request.user.interested_in)
     # print(interested_in)
