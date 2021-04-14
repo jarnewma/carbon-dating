@@ -1,0 +1,72 @@
+#messages-wrapper {
+    color: black;
+    width: 90%;
+    margin: 10px auto;
+}
+
+.message-sent {
+    position: relative;
+    margin-left: calc(100% - 350px);
+    margin-bottom: 15px;
+    border: 1px solid cyan;
+    background-color: cyan;
+    padding: 10px;
+    height: fit-content;
+    padding-bottom: 30px;
+    border-radius: 15px;
+}
+
+.message-received {
+    position: relative;
+    margin-left: 20px;
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: lightgray;
+    width: 300px;
+    height: fit-content;
+    padding-bottom: 30px;
+    text-align: left;
+    border-radius: 15px;
+}
+
+.message-time {
+    position: absolute;
+    bottom: 5px;
+    right: 10px;
+}
+
+.messager-pic {
+    height: 50px;
+}
+
+.message-received-container {
+    display: flex;
+}
+
+#input-message {
+    width: 90%;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    position: fixed;
+    bottom: 20px;
+}
+
+#input-message input {
+    width: calc(100% - 100px);
+    border-radius: 20px;
+    padding: 10px;
+    border: 2px solid black;
+}
+
+#input-message input:focus {
+    outline: none;
+}
+
+#input-message button {
+    width: 70px;
+    padding: 10px;
+    border-radius: 20px;
+    background-color: cyan;
+    border: cyan;
+}
