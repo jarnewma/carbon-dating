@@ -1,5 +1,6 @@
 from django.db import models
 from author.models import Author
+from django.utils import timezone
 
 
 class Message(models.Model):
@@ -19,5 +20,6 @@ class Message(models.Model):
         null=True,
         blank=True
     )
-    viewed = models.BooleanField(default=False),
+    viewed = models.BooleanField(default=False)
+    created_at = models.DateTimeField(default=timezone.now)
     content = models.TextField()
