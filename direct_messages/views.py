@@ -22,13 +22,20 @@ class MessagesView(LoginRequiredMixin, View):
     def post(self, request, username):
         content = request.POST.get("content")
         matched_user = Author.objects.filter(username=username).first()
-        Message.objects.create(sender=request.user, receiver=matched_user, content=content)
+        Message.objects.create(sender=request.user,
+                               receiver=matched_user, content=content)
         return HttpResponseRedirect(request.path)
 
 
 class AllMessages(LoginRequiredMixin, View):
     def get(self, request):
+        unread_messages = Message.objects.filter(
+            receiver=request.user, viewed=False).order_by('-created_at')
+        read_messages = Message.objects.filter(
+            receiver=request.user, viewed=True).order_by('-created_at')
         user_admiring = request.user.admiring.all()
         user_admirers = request.user.admirers.all()
         matches = user_admiring.intersection(user_admirers)
-        return render(request, "messages/messages_preview.html", {"matches": matches})
+        return render(request, "messages/messages_preview.html", {"matches": matches,
+                                                                  "unread_messages": unread_messages,
+                                                                  "read_messages": read_messages})

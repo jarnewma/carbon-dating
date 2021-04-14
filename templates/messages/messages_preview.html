@@ -5,14 +5,31 @@
 <link rel="stylesheet" type="text/css" href="{% static 'css/messages.css' %}">
 
 <div id="matches-container">
-{% for match in matches %}
+    {% for message in unread_messages %}
+        <section class="unread-message">
+            <header>From {{message.sender}} </header>
+            <img height="100px" src={{message.sender.profilepic.url}} alt="User image"/>
+            <span>{{message.content}}<a class="original-anchor" href="/messages/{{message.sender.username}}"> Message </a></span>
+        </section>
+    {% endfor %}
 
-<section class="user-match">
-<img height="100px" src={{match.profilepic.url}} alt="User image"/>
-<span>You have a match with {{match.username}}, <a class="original-anchor" href="/messages/{{match.username}}">click here to start messaging</a></span>
-</section>
+{% for message in read_messages %}
+        <section class="read-message">
+            <header>From {{message.sender}} </header>
+            <img height="100px" src={{message.sender.profilepic.url}} alt="User image"/>
+            <span>{{message.content}}<a class="original-anchor" href="/messages/{{message.sender.username}}"> Message </a></span>
+        </section>
+    {% endfor %}
 
-{% endfor %}
+
+    {% for match in matches %}
+
+    <section class="user-match">
+        <img height="100px" src={{match.profilepic.url}} alt="User image"/>
+        <span>You have a match with {{match.username}}, <a class="original-anchor" href="/messages/{{match.username}}">click here to start messaging</a></span>
+    </section>
+
+    {% endfor %}
 </div>
 
 {% endblock content %}
