@@ -1,11 +1,9 @@
-
 body {
     background: #222D32;
     background-image: url(../media/rock-backround.jpg);
-
     font-family: 'Roboto', sans-serif;
 }
- 
+
 .login-box {
     margin-top: 75px;
     height: auto;
@@ -14,7 +12,7 @@ body {
     box-shadow: 0 15px 8px -6px black;
     border-radius: 10px;
 }
- 
+
 .login-key {
     height: 100px;
     font-size: 80px;
@@ -23,7 +21,7 @@ body {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
- 
+
 .login-title {
     margin-top: 15px;
     text-align: center;
@@ -33,14 +31,14 @@ body {
     font-weight: bold;
     color: #ECF0F5;
 }
- 
+
 .login-form {
     margin-top: 25px;
     text-align: left;
 }
- 
+
 input[type=text] {
-    background-color:rgba(26, 34, 38, 0.55);
+    background-color: rgba(26, 34, 38, 0.55);
     border: none;
     border-bottom: 2px solid #0DB8DE;
     border-top: 0px;
@@ -51,9 +49,9 @@ input[type=text] {
     padding-left: 0px;
     color: #ECF0F5;
 }
- 
+
 input[type=password] {
-    background-color:rgba(26, 34, 38, 0.55);
+    background-color: rgba(26, 34, 38, 0.55);
     border: none;
     border-bottom: 2px solid #0DB8DE;
     border-top: 0px;
@@ -64,12 +62,12 @@ input[type=password] {
     margin-bottom: 20px;
     color: #ECF0F5;
 }
- 
+
 .form-group {
     margin-bottom: 40px;
     outline: 0px;
 }
- 
+
 .form-control:focus {
     border-color: inherit;
     -webkit-box-shadow: none;
@@ -79,16 +77,16 @@ input[type=password] {
     background-color: #1A2226;
     color: #ECF0F5;
 }
- 
+
 input:focus {
     outline: none;
     box-shadow: 0 0 0;
 }
- 
+
 label {
     margin-bottom: 0px;
 }
- 
+
 .form-control-label {
     font-size: 11px;
     color: #6C6C6C;
@@ -111,12 +109,12 @@ label {
     letter-spacing: 1px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
- 
+
 .btn-outline-primary:hover {
     background-color: #0DB8DE;
     right: 0px;
 }
- 
+
 .login-btm {
     float: left;
 }
@@ -124,19 +122,19 @@ label {
 .signup-btn {
     float: right;
 }
- 
+
 .login-button {
     padding-right: 0px;
     text-align: right;
     margin-bottom: 25px;
 }
- 
+
 .login-text {
     text-align: left;
     padding-left: 0px;
     color: #A2A4A4;
 }
- 
+
 .loginbttm {
     padding: 0px;
 }
@@ -146,7 +144,6 @@ label {
     height: 120px;
     display: inline-flex;
     text-align: center;
-    
 }
 
 .float-button {
@@ -162,8 +159,11 @@ label {
     float: left;
 }
 
-a, a:hover, a:focus, a:active {
+a,
+a:hover,
+a:focus,
+a:active {
     text-decoration: none;
     color: inherit;
-    cursor:pointer;
+    cursor: pointer;
 }

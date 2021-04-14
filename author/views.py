@@ -52,9 +52,9 @@ def admire_view(request, user_id):
 
 def error_404(request, exception):
     data = {}
-    return render(request, 'certman/404.html', data)
+    return render(request, "404.html", data)
 
 
 def error_500(request,  exception):
     data = {}
-    return render(request, 'certman/500.html', data)
+    return render(request, '500.html', data)
