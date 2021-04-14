@@ -29,9 +29,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '=1gymr=-*z%j77q4-lvhk5d%5q0g+9zsmr58wo2i6e@y5#=nt('
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
 
 # Application definition
@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'direct_messages',
     'comment',
     'new_admirers',
+
 ]
 
 MIDDLEWARE = [
@@ -154,3 +155,11 @@ LOGOUT_REDIRECT_URL = 'homepage'
 
 
 LOGIN_URL = '/login/'
+
+handler404 = 'author.views.error_404'
+
+handler500 = 'author.views.error_500'
+
+handler403 = 'author.views.error_403'
+
+handler400 = 'author.views.error_400'

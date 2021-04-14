@@ -48,3 +48,13 @@ def admire_view(request, user_id):
         admirer.admirers.remove(admire_user)
         admirer.save()
     return redirect(reverse("explore"), args=[user_id])
+
+
+def error_404(request, exception):
+    data = {}
+    return render(request, 'certman/404.html', data)
+
+
+def error_500(request,  exception):
+    data = {}
+    return render(request, 'certman/500.html', data)
