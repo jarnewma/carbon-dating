@@ -12,6 +12,7 @@ class MessagesView(LoginRequiredMixin, View):
         matched_user = Author.objects.filter(username=username).first()
         messages_received = Message.objects.filter(
             sender=matched_user, receiver=request.user)
+        messages_received.update(viewed=True)
         messages_sent = Message.objects.filter(
             sender=request.user, receiver=matched_user)
         messages = messages_sent.union(
