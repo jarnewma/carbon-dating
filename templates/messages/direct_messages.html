@@ -3,18 +3,28 @@
 
 {% block content %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/chatbox.css' %}">
-<div id="messages-container">
-{% for message in messages %}
-{% if request.user == message.sender%}
-<div class="chatbox message-sent">
-sent
-</div>
-{% else %}
-<div class="chatbox message-received">
-receieved
-</div>
-{% endif %}
-{% endfor %}
+<div id="messages-wrapper">
+    {% for message in messages %}
+        {% if request.user == message.sender%}
+            <div class="chatbox message-sent">
+                {{message.content}}
+                <div class="message-time">
+                {{message.created_at}}
+                </div>
+            </div>
+        {% else %}
+        <div class="message-received-container"> 
+            <img class="messager-pic" src={{profile_pic.url}}>
+            <div class="chatbox message-received">
+                {{message.content}}
+                <div class="message-time">
+                    {{message.created_at}}
+                </div>
+
+            </div>
+        </div>
+        {% endif %}
+    {% endfor %}
 </div>
 
 {% endblock content %}

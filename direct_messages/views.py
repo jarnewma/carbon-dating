@@ -10,10 +10,14 @@ from direct_messages.models import Message
 class MessagesView(LoginRequiredMixin, View):
     def get(self, request, username):
         matched_user = Author.objects.filter(username=username).first()
-        messages_received = Message.objects.filter(sender=matched_user, receiver=request.user)
-        messages_sent = Message.objects.filter(sender=request.user, receiver=matched_user)
-        messages = messages_sent.union(messages_received).order_by("created_at")
-        return render(request, "messages/direct_messages.html", {"messages": messages})
+        messages_received = Message.objects.filter(
+            sender=matched_user, receiver=request.user)
+        messages_sent = Message.objects.filter(
+            sender=request.user, receiver=matched_user)
+        messages = messages_sent.union(
+            messages_received).order_by("created_at")
+        return render(request, "messages/direct_messages.html", {"messages": messages,
+                                                                 "profile_pic": matched_user.profilepic})
 
     def post(self, request):
         pass
