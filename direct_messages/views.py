@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, HttpResponseRedirect
 from django.views import View
 from django.contrib.auth.mixins import LoginRequiredMixin
 from author.models import Author
@@ -19,8 +19,11 @@ class MessagesView(LoginRequiredMixin, View):
         return render(request, "messages/direct_messages.html", {"messages": messages,
                                                                  "profile_pic": matched_user.profilepic})
 
-    def post(self, request):
-        pass
+    def post(self, request, username):
+        content = request.POST.get("content")
+        matched_user = Author.objects.filter(username=username).first()
+        Message.objects.create(sender=request.user, receiver=matched_user, content=content)
+        return HttpResponseRedirect(request.path)
 
 
 class AllMessages(LoginRequiredMixin, View):

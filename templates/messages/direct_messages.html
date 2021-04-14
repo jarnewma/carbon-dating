@@ -28,8 +28,9 @@
 </div>
 
     <div id="input-message">
-    <form method="post">
-    <input type="text"/>
+    <form action="" method="post">
+    {% csrf_token %}
+    <input name="content" type="text"/>
     <button type="submit">Send!</button>
     </form>
     </div>
