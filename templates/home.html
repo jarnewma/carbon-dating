@@ -30,10 +30,12 @@
 
     <div class="column border-end border-secondary" style="min-height: min-content;" >
       <h1 class="display-3" style="text-align:center;"><u>Recent Posts</u></h1>
-      {% for p in posts %}
+      {% for u in user.admirers.all %}
+      {% for post in u.post_set.all %}
       <ul style="list-style-type:none">
-      <li><img src="{{p.image.url}}" alt="posts" class="img-thumbnail post-img"></li>
+      <li><img src="{{post.image.url}}" alt="posts" class="img-thumbnail post-img"></li>
       </ul>
+      {% endfor %}
       {% endfor %}
     </div>
 

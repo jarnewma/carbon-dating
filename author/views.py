@@ -17,7 +17,7 @@ def author_profile(request, user_id):
 
 @login_required
 def home_view(request):
-    posts = Post.objects.all()[:10]
+    posts = Post.objects.all().order_by("-timestamp")[:5]
     context = {
         "posts": posts
     }
