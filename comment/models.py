@@ -7,7 +7,7 @@ from post.models import Post
 class Comment(models.Model):
     post = models.ForeignKey(
         Post,
-        related_name="comment",
+        related_name="comments",
         on_delete=models.CASCADE,
         default=None,
         null=True,

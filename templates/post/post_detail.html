@@ -25,10 +25,26 @@
         <h3>Succesfully uploaded : {{image}}</h3>
         <img src="{{ image.url}}" alt="connect" class="img-thumbnail post-img" />
         {% endif %}
+        <hr />
+        <h2>Comments</h2>
+        {% if not post.comments.all %}
+          No comments yet... <a href=" {% url 'add_comment' post.id %} " >Add one</a>
+        {% else %}
+        <a href=" {% url 'add_comment' post.id %} " >Add comment</a>
+        <br />
+        <br />
+          {% for comment in post.comments.all %}
+            {{ comment.content }}
+            {{ comment.author }}
+            {{ comment.timestamp }}
+            
+            {% endfor %}
+      {% endif %}
+      {% endif %}
+      <br />
       </div>
     </div>
     <br />
   </section>
 </div>
-{% endif %} 
 {% endblock %}
