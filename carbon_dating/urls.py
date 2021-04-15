@@ -30,7 +30,12 @@ urlpatterns = [
     path('explore/', author_views.explore_view, name="explore"),
     path('signup/', authentication_views.SignUpView.as_view(), name='signup'),
     path('posts/', include('post.urls')),
-    path('author_profile/<int:user_id>/', author_views.author_profile, name="author_profile"),
+    path('posts/', include('comment.urls')),
+    path(
+        'author_profile/<int:user_id>/',
+        author_views.author_profile,
+        name="author_profile"
+        ),
     path('admire/<int:user_id>/', author_views.admire_view),
     *messages_urls,
 ]

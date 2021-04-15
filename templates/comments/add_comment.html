@@ -1,0 +1,42 @@
+{% extends 'base.html' %} 
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content%}
+
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'css/post_form.css' %}"
+/>
+
+<html>
+  <title>Comment</title>
+<body>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-3 col-md-2"></div>
+    <div class="col-lg-6 col-md-8 post-box">
+      <div class="col-lg-12 post-form">
+        <div class="col-lg-12 post-form">
+          <form method="post">
+            {% csrf_token %}
+            <div>
+              {{ form|crispy }}
+            </div>
+            <br>
+            <button type="submit" class="btn btn-outline-primary">
+              Add Comment
+            </button>
+          </form>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-2"></div>
+    </div>
+  </div>
+
+  
+</div>
+</body>
+</html>
+{% endblock %}
