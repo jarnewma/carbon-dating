@@ -1,0 +1,34 @@
+{% extends 'base.html' %} 
+{% include navbar %} 
+{% load static %} 
+{% block title%}Rock On{% endblock %} 
+
+{% block content %} 
+{% if user.is_authenticated %}
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'css/post_detail.css' %}"
+/>
+<title>{{user.username}}</title>
+<div class="wrapper ">
+  <section class="column center border-secondary">
+    <div class="card text-center">
+      <a href="/posts/post/{{ post.id }}">
+        <p>{{ post.timestamp | date:"D M d Y" }}</p></a
+      >
+      <div class="card-body">
+        <p><img src="{{post.image.url}}" alt="post" class="img-thumbnail post-img"</p>
+        <p>{{post.caption}}</p>
+
+        {% if image %}
+        <h3>Succesfully uploaded : {{image}}</h3>
+        <img src="{{ image.url}}" alt="connect" class="img-thumbnail post-img" />
+        {% endif %}
+      </div>
+    </div>
+    <br />
+  </section>
+</div>
+{% endif %} 
+{% endblock %}

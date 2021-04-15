@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'direct_messages',
     'comment',
     'new_admirers',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
