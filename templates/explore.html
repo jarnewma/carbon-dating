@@ -24,23 +24,22 @@
       
       {% for user in users %}
       {% if user not in request.user.admirers.all%}
-        <h1 class="display-4" style="text-align:center;">{{user.username}}</h1>
-        <a href="/author_profile/{{user.id}}/"><img src="{{user.profilepic.url}}" class="avatar" alt="avatar"></a>
-        {% comment %} <div class="rock-type">
-        <u><p class="h4">Rock type</p></u>      
-         <p class="h6">{{user.rock_type}}</p>
-        </div>
-        <div class="interested-in">
-        <u><p class="h4">Interested In</p></u>      
-         <p class="h6">{{user.interested_in}}</p>
-        </div> {% endcomment %}
+      <div class="card" style="text-align:center;width:250px;margin-left:150px;;margin-bottom:50px">
+  <img class="card-img-top" src="{{user.profilepic.url}}" alt="potential match" style="height:200px">
+  <div class="card-body">
+    <h5 class="card-title">{{user.username}}</h5>
+
+   <button type="button" class="btn btn-outline-danger btn-sm"><a href="/admire/{{user.id}}/">Admire</a> <i class="fa fa-heart"></i></button>
+        
+      
+    <button type="button" class="btn btn-outline-success btn-sm"><a href="/author_profile/{{user.id}}">Profile</a> <i class="fa fa-user"></i></button>
+    
+  </div>
+</div>
+        
         {% endif %}
         {% endfor %}
-        <div class="heart-button"><button type="button" class="btn btn-outline-danger btn-lg"><a href="/admire/{{user.id}}/">Admire</a> <i class="fa fa-heart"></i></button>
-        </div>
-        <div class="skip-button">
-        <button type="button" class="btn btn-outline-success btn-lg">Skip <i class="fa fa-forward"></i></button>
-        </div>
+      
         
     </div>
     
@@ -52,7 +51,7 @@
         
         <p class="h4" style="text-align:center;"><u>{{u.username}}</u></p>
         <br>
-        <img class="avatar" alt="avatar" src="{{u.profilepic.url}}">
+        <a href="/author_profile/{{user.id}}"><img class="avatar" alt="avatar" src="{{u.profilepic.url}}"></a>
         
         </div>
      {% endfor %}
