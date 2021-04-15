@@ -1,8 +1,5 @@
-a,
-a:hover,
-a:focus,
-a:active {
+a, a:hover, a:focus, a:active {
     text-decoration: none;
-    color: white;
-    cursor: pointer;
+    color: inherit;
+    cursor:pointer;
 }
