@@ -1,8 +1,13 @@
+.img {
+    height: 200px;
+    width: 200px;
+}
+
 a,
 a:hover,
 a:focus,
 a:active {
     text-decoration: none;
-    color: white;
+    color: inherit;
     cursor: pointer;
 }
