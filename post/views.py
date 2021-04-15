@@ -9,7 +9,7 @@ from django.shortcuts import get_object_or_404
 
 def post_detail(request, id):
     post = Post.objects.get(id=id)
-    return render(request, "../templates/post_detail.html", {"post": post})
+    return render(request, "../templates/post/post_detail.html", {"post": post})
 
 
 def new_post(request):
@@ -30,4 +30,4 @@ def new_post(request):
             new_post.save()
             return redirect(reverse("homepage"))
     form = PostForm()
-    return render(request, "../templates/generic_form.html", {"form": form})
+    return render(request, "../templates/post/post_form.html", {"form": form})
