@@ -50,7 +50,7 @@ python-versions = "*"
 name = "django-multiselectfield"
 version = "0.1.12"
 description = "Django multiple select field"
-category = "dev"
+category = "main"
 optional = false
 python-versions = "*"
 
@@ -137,7 +137,7 @@ python-versions = ">=2.6, !=3.0.*, !=3.1.*, !=3.2.*"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "2f53ae0621d90bd32e10e5c1938e897ad59ad202b0a85b44084e512aab6d75bb"
+content-hash = "b965e97b6120fc03911db874234adfab1708249dd13711f8a3a555df60a71df4"
 
 [metadata.files]
 asgiref = [
