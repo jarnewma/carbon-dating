@@ -37,6 +37,8 @@ urlpatterns = [
         name="author_profile"
         ),
     path('admire/<int:user_id>/', author_views.admire_view),
+    path('profile_admire/<int:user_id>/', author_views.profile_admire_view),
+    path('change_profile/', author_views.change_profile, name="change_profile"),
     *messages_urls,
 ]
 
