@@ -48,3 +48,7 @@ def admire_view(request, user_id):
         admirer.admirers.remove(admire_user)
         admirer.save()
     return redirect(reverse("explore"), args=[user_id])
+
+def post_detail(request, id):
+    post = Post.objects.get(id=id)
+    return render(request, "../templates/author_detail.html", {"post": post})

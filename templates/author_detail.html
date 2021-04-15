@@ -1,4 +1,18 @@
 <p>
     {{author_info}}
     {{author_info.rock_type}}
+    {{author_info.interested_in}}
+    {{author_info.bio}}
+    {{author_info.created_at}}
+    {{% for p in post %}}
+        {{p.body}}
+    {% endfor %}
 </p>
+
+<a href ="/admire/{{author_info.id}}"><button>
+    {% if author_info not in request.user.admirers.all %}
+        Admire
+        {% else %}
+        Unadmire
+    {% endif %}
+</button></a>
