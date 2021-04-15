@@ -13,6 +13,11 @@
     <input type="submit" value="Submit!">
 
 </form> -->
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'css/post_form.css' %}"
+/>
 <html>
   <title>Create a Post</title>
 <body>
@@ -24,13 +29,13 @@
         <div class="col-lg-12 post-form">
           <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
-            <div class="mb-3">
-              {{ form.media }}
-              {{ form.as_p }}
-            </div>
             <div>
-              <input type="submit" value="Submit!">
+              {{ form|crispy }}
             </div>
+            <br>
+            <button type="submit" class="btn btn-outline-primary">
+              Submit
+            </button>
           </form>
         </div>
       </div>

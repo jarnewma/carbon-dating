@@ -10,7 +10,7 @@ text {
 
 body {
 	margin: 0;
-    background: conic-gradient(at top right, slategray, white);
+    background-image: url(../media/rock-backround.jpg);
 }
 
 .wrapper {
