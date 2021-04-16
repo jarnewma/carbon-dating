@@ -82,16 +82,17 @@ def change_profile(request):
             request.POST, request.FILES, instance=request.user)
 
         if form.is_valid():
-            form.profilepic = request.FILES['profilepic']
+            form.profilepic = request.FILES.get('profilepic')
             form.save()
         return HttpResponseRedirect(reverse("author_profile", args=[request.user.id]))
     form = AuthorChangeForm(initial={
         'rock_type': request.user.rock_type,
         "interested_in": request.user.interested_in,
         "bio": request.user.bio,
-        'password': ""
+        'password': "",
+        'profilepic': request.user.profilepic,
     })
-    return render(request, "generic_form.html", {"form": form})
+    return render(request, "update_profile.html", {"form": form})
 
 
 class PasswordsChangeView(PasswordChangeView):
