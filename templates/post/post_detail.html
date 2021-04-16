@@ -34,10 +34,11 @@
         <br />
         <br />
           {% for comment in post.comments.all %}
-            {{ comment.content }}
-            {{ comment.author }}
-            {{ comment.timestamp }}
-            
+          <ul>
+            <li>{{ comment.content }}</li>
+            <li>{{ comment.commenter }}</li>
+            <li>{{ comment.timestamp }}</li>
+          </ul>
             {% endfor %}
       {% endif %}
       {% endif %}
