@@ -88,6 +88,7 @@ def post_detail(request, id):
 @login_required
 def change_profile(request):
     if request.method == "POST":
+
         form = AuthorChangeForm(
             request.POST, request.FILES, instance=request.user)
 
