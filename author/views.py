@@ -36,7 +36,8 @@ def explore_view(request):
     interested_in = list(request.user.interested_in)
     # print(interested_in)
     # print(Author.objects.filter(rock_type__in=interested_in))
-    users = Author.objects.filter(rock_type__in=interested_in).exclude(username=request.user.username)
+    users = Author.objects.filter(rock_type__in=interested_in).exclude(
+        username=request.user.username)
     matches = Author.objects.all().exclude(username=request.user.username)
     context = {
         "users": users,
@@ -77,21 +78,24 @@ def post_detail(request, id):
 @login_required
 def change_profile(request):
     if request.method == "POST":
-        form = AuthorChangeForm(request.POST, request.FILES, instance=request.user)
+
+        form = AuthorChangeForm(
+            request.POST, request.FILES, instance=request.user)
 
         if form.is_valid():
-            form.profilepic = request.FILES['profilepic']
+            form.profilepic = request.FILES.get('profilepic')
             form.save()
         return HttpResponseRedirect(reverse("author_profile", args=[request.user.id]))
     form = AuthorChangeForm(initial={
         'rock_type': request.user.rock_type,
         "interested_in": request.user.interested_in,
         "bio": request.user.bio,
-        'password': ""
+        'password': "",
+        'profilepic': request.user.profilepic,
     })
-    return render(request, "generic_form.html",{"form": form})
+    return render(request, "update_profile.html", {"form": form})
+
 
 class PasswordsChangeView(PasswordChangeView):
     form_class = PasswordChangeForm
     success_url = reverse_lazy('homepage')
-    
