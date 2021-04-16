@@ -27,5 +27,6 @@ class AuthorChangeForm(UserChangeForm):
         fields = ('rock_type',
                   'interested_in',
                   'bio',
-                  'birthday',
-                  'profilepic')
+                  'profilepic',
+                  'password'
+                  )
