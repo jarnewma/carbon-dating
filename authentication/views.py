@@ -1,4 +1,3 @@
-from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView
 from authentication.forms import AuthorCreationForm
 from django.contrib.auth import authenticate, login, logout
@@ -27,6 +26,9 @@ class LoginFormView(View):
                 return render(request, "registration/login.html",
                               {"form": form,
                                "message": "Wrong username or password, please try again"})
+        return render(request, "registration/login.html",
+                      {"form": form,
+                               "message": "Missing fields"})
 
 
 class LogoutView(View):
@@ -37,5 +39,11 @@ class LogoutView(View):
 
 class SignUpView(CreateView):
     form_class = AuthorCreationForm
-    success_url = reverse_lazy('login')
+    success_url = '/'
     template_name = 'registration/signup.html'
+
+    def form_valid(self, form):
+        valid = super().form_valid(form)
+
+        login(self.request, self.object)
+        return valid
