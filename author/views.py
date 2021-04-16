@@ -7,6 +7,7 @@ from django.contrib.auth.views import PasswordChangeView
 from django.contrib.auth.forms import PasswordChangeForm
 from django.urls import reverse_lazy
 # Create your views here.
+# Followed demo from Codemy to implement view to create password update
 
 
 @login_required
