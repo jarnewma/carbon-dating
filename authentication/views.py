@@ -1,4 +1,3 @@
-from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView
 from authentication.forms import AuthorCreationForm
@@ -11,20 +10,23 @@ from django.views import View
 
 
 class LoginFormView(View):
-
     def get(self, request):
         form = LoginForm()
         return render(request, "registration/login.html", {'form': form})
 
-        def post(self, request):
-            form = LoginForm(request.POST)
-            if form.is_valid():
-                data = form.cleaned_data
-                user = authenticate(
-                    request, username=data['username'], password=data['password'])
-                if user:
-                    login(request, user)
-                    return HttpResponseRedirect(request.GET.get('next', reverse('homepage')))
+    def post(self, request):
+        form = LoginForm(request.POST)
+        if form.is_valid():
+            data = form.cleaned_data
+            user = authenticate(
+                request, username=data['username'], password=data['password'])
+            if user:
+                login(request, user)
+                return HttpResponseRedirect(request.GET.get('next', reverse('homepage')))
+            else:
+                return render(request, "registration/login.html",
+                              {"form": form,
+                               "message": "Wrong username or password, please try again"})
 
 
 class LogoutView(View):

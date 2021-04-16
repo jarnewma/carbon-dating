@@ -36,7 +36,8 @@ def explore_view(request):
     interested_in = list(request.user.interested_in)
     # print(interested_in)
     # print(Author.objects.filter(rock_type__in=interested_in))
-    users = Author.objects.filter(rock_type__in=interested_in).exclude(username=request.user.username)
+    users = Author.objects.filter(rock_type__in=interested_in).exclude(
+        username=request.user.username)
     matches = Author.objects.all().exclude(username=request.user.username)
     context = {
         "users": users,
@@ -77,7 +78,8 @@ def post_detail(request, id):
 @login_required
 def change_profile(request):
     if request.method == "POST":
-        form = AuthorChangeForm(request.POST, request.FILES, instance=request.user)
+        form = AuthorChangeForm(
+            request.POST, request.FILES, instance=request.user)
 
         if form.is_valid():
             form.profilepic = request.FILES['profilepic']
@@ -89,9 +91,9 @@ def change_profile(request):
         "bio": request.user.bio,
         'password': ""
     })
-    return render(request, "generic_form.html",{"form": form})
+    return render(request, "generic_form.html", {"form": form})
+
 
 class PasswordsChangeView(PasswordChangeView):
     form_class = PasswordChangeForm
     success_url = reverse_lazy('homepage')
-    

@@ -23,12 +23,15 @@ from author import views as author_views
 from authentication import views as authentication_views
 from direct_messages.urls import url_patterns as messages_urls
 from django.contrib.auth import views as auth_views
+from authentication import views as authentication_views
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', author_views.home_view, name='homepage'),
-    path('', include('django.contrib.auth.urls')),
+    # path('', include('django.contrib.auth.urls')),
+    path('login/', authentication_views.LoginFormView.as_view()),
+    path('logout/', authentication_views.LogoutView.as_view(), name="logout"),
     path('explore/', author_views.explore_view, name="explore"),
     path('signup/', authentication_views.SignUpView.as_view(), name='signup'),
     path('posts/', include('post.urls')),
