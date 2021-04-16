@@ -29,9 +29,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = env("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
 
 # Application definition
@@ -157,3 +157,11 @@ LOGOUT_REDIRECT_URL = 'homepage'
 
 
 LOGIN_URL = '/login/'
+
+handler404 = 'author.views.error_404'
+
+handler500 = 'author.views.error_500'
+
+handler403 = 'author.views.error_403'
+
+handler400 = 'author.views.error_400'

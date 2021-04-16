@@ -24,7 +24,7 @@ def author_profile(request, user_id):
 
 @login_required
 def home_view(request):
-    posts = Post.objects.all()[:10]
+    posts = Post.objects.all().order_by("-timestamp")[:5]
     context = {
         "posts": posts
     }
@@ -56,6 +56,16 @@ def admire_view(request, user_id):
         admirer.admirers.remove(admire_user)
         admirer.save()
     return redirect(reverse("explore"), args=[user_id])
+
+
+def error_404(request, exception):
+    data = {}
+    return render(request, "404.html", data)
+
+
+def error_500(request,  exception):
+    data = {}
+    return render(request, '500.html', data)
 
 
 def profile_admire_view(request, user_id):

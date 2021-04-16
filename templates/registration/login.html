@@ -32,9 +32,10 @@
                             <div class="col-lg-12 loginbttm">
                                 <div class="col-lg-6 login-btm login-text">
                                     <!-- Error Message -->
+                                    {{message}}
                                 </div>
                                 <div class="col-lg-6 login-btm login-button">
-                                    <button type="submit" class="btn btn-outline-primary">LOGIN</button>
+                                    <button formaction="" type="submit" class="btn btn-outline-primary">LOGIN</button>
                                 </div>
                                  <div class="col-lg-6 login-btm signup-button">
                                     <button class="btn btn-outline-primary"><a href="{% url 'signup' %}">SIGNUP</a></button>
