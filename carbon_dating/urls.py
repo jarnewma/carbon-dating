@@ -22,6 +22,8 @@ from author import views as author_views
 # from authentication.views import SignUpView
 from authentication import views as authentication_views
 from direct_messages.urls import url_patterns as messages_urls
+from django.contrib.auth import views as auth_views
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -34,6 +36,7 @@ urlpatterns = [
     path('admire/<int:user_id>/', author_views.admire_view),
     path('profile_admire/<int:user_id>/', author_views.profile_admire_view),
     path('change_profile/', author_views.change_profile, name="change_profile"),
+    path('password/', author_views.PasswordsChangeView.as_view(template_name="change_password.html")),
     *messages_urls,
 ]
 

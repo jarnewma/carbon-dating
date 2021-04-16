@@ -3,6 +3,9 @@ from post.models import Post
 from author.models import Author
 from django.contrib.auth.decorators import login_required
 from authentication.forms import AuthorChangeForm
+from django.contrib.auth.views import PasswordChangeView
+from django.contrib.auth.forms import PasswordChangeForm
+from django.urls import reverse_lazy
 # Create your views here.
 
 
@@ -83,8 +86,11 @@ def change_profile(request):
         'rock_type': request.user.rock_type,
         "interested_in": request.user.interested_in,
         "bio": request.user.bio,
-        "password":request.user.password
-        
+        'password': ""
     })
-    return render(request, "generic_form.html",{"form":form})
+    return render(request, "generic_form.html",{"form": form})
+
+class PasswordsChangeView(PasswordChangeView):
+    form_class = PasswordChangeForm
+    success_url = reverse_lazy('homepage')
     
