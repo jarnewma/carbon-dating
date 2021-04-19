@@ -6,6 +6,7 @@ from authentication.forms import AuthorChangeForm
 from django.contrib.auth.views import PasswordChangeView
 from django.contrib.auth.forms import PasswordChangeForm
 from django.urls import reverse_lazy
+from author.forms import PasswordChangingForm
 # Create your views here.
 # Followed demo from Codemy to implement view to create password update
 
@@ -107,5 +108,5 @@ def change_profile(request):
 
 
 class PasswordsChangeView(PasswordChangeView):
-    form_class = PasswordChangeForm
+    form_class = PasswordChangingForm
     success_url = reverse_lazy('homepage')
