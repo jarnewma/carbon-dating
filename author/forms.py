@@ -12,7 +12,7 @@ class PasswordChangingForm(PasswordChangeForm):
     class Meta:
         model = User
         fields = (
-            'Old Password',
-            'New Password',
-            'Confirmation Password'
+            'old_password',
+            'new_password1',
+            'new_password2'
         )
