@@ -1,13 +1,11 @@
 * {
-    margin:0;
-    padding:0;
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
-
-
 body {
-	margin: 0;
+    margin: 0;
     background: conic-gradient(at top right, slategray, white);
 }
 
@@ -16,33 +14,30 @@ body {
     max-width: 2000px;
     width: 100%;
     margin: 20px auto;
-
 }
 
 .columns {
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
-    margin: 5px; 
+    margin: 5px;
     overflow: hidden;
-
 }
 
 .column {
     flex: 1;
     margin: 15px;
     padding: 20px;
-   
 }
 
 .column:first-child {
     margin-left: 0;
-    
 }
 
 .column:last-child {
     margin-right: 0;
 }
+
 .avatar {
     vertical-align: middle;
     text-align: center;
@@ -52,14 +47,22 @@ body {
     margin-left: 130px;
     margin-right: 20px;
     margin-top: 25px;
-    
+}
+
+.avi-small {
+    vertical-align: left;
+    width: 125px;
+    height: 125px;
 }
 
 .post-img {
     vertical-align: middle;
     text-align: center;
-    width: 450px;
-    height: 400px;
+    justify-content: center;
+    width: 350px;
+    height: 300px;
+    margin-left: 100px;
+    margin-bottom: 25px;
 }
 
 .button-list {
@@ -69,8 +72,16 @@ body {
     line-height: 1.8;
 }
 
-a, a:hover, a:focus, a:active {
+a,
+a:hover,
+a:focus,
+a:active {
     text-decoration: none;
     color: inherit;
-    cursor:pointer;
+    cursor: pointer;
+}
+
+.recent-text {
+    float: right;
+    text-align: center;
 }

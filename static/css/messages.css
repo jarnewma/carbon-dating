@@ -1,4 +1,6 @@
-.user-match, .unread-message, .read-message {
+.user-match,
+.unread-message,
+.read-message {
     border-bottom: 1px solid black;
     margin: 10px auto;
     text-align: center;
@@ -8,13 +10,11 @@
 .original-anchor {
     color: blue;
     transition: .2s;
-    
 }
 
 .original-anchor:hover {
     font-size: 20px;
 }
-
 
 .unread-message {
     font-weight: bold;

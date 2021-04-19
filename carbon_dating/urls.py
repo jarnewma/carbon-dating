@@ -22,6 +22,8 @@ from author import views as author_views
 # from authentication.views import SignUpView
 from authentication import views as authentication_views
 from direct_messages.urls import url_patterns as messages_urls
+from django.contrib.auth import views as auth_views
+
 
 
 urlpatterns = [
