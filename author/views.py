@@ -7,6 +7,7 @@ from django.contrib.auth.views import PasswordChangeView
 from django.contrib.auth.forms import PasswordChangeForm
 from django.urls import reverse_lazy
 from author.forms import PasswordChangingForm
+from new_admirers.models import NewAdmirer
 # Create your views here.
 # Followed demo from Codemy to implement view to create password update
 
@@ -26,8 +27,11 @@ def author_profile(request, user_id):
 @login_required
 def home_view(request):
     posts = Post.objects.all().order_by("-timestamp")[:5]
+    new_admirers = NewAdmirer.objects.filter(admirer=request.user).order_by("viewed")[:10]
+    # breakpoint()
     context = {
-        "posts": posts
+        "posts": posts,
+        "recent": new_admirers
     }
     return render(request, 'home.html', context)
 
@@ -75,9 +79,11 @@ def profile_admire_view(request, user_id):
     if admire_user not in admirer.admirers.all():
         admirer.admirers.add(admire_user)
         admirer.save()
+        NewAdmirer.objects.create(admirer=admire_user, admiring=request.user)
     else:
         admirer.admirers.remove(admire_user)
         admirer.save()
+        NewAdmirer.objects.get(admirer=admire_user, admiring=request.user).delete()
     return HttpResponseRedirect(reverse("author_profile", args=[user_id]))
 
 
