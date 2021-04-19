@@ -28,20 +28,22 @@
         <hr />
         <h2>Comments</h2>
         {% if not post.comments.all %}
+        <div>
           No comments yet... <a href=" {% url 'add_comment' post.id %} " >Add one</a>
         {% else %}
         <a href=" {% url 'add_comment' post.id %} " >Add comment</a>
         <br />
         <br />
           {% for comment in post.comments.all %}
-          <ul>
-            <li>{{ comment.content }}</li>
-            <li>{{ comment.commenter }}</li>
-            <li>{{ comment.timestamp }}</li>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">{{ comment.content }} {{ comment.commenter }} {{ comment.timestamp }}</li>
+            <li class="list-group-item"></li>
+            <li class="list-group-item"></li>
           </ul>
             {% endfor %}
       {% endif %}
       {% endif %}
+      </div>
       <br />
       </div>
     </div>

@@ -21,6 +21,26 @@ body {
 
 }
 
+.list-group {
+    margin-top: 75px;
+    height: auto;
+    color: #0DB8DE;
+    background-color: rgba(26, 34, 38, 0.88);
+    text-align: center;
+    box-shadow: 0 15px 8px -6px black;
+    border-radius: 10px;
+}
+
+.list-group-item {
+    margin-top: 75px;
+    height: auto;
+    color: #0DB8DE;
+    background-color: rgba(26, 34, 38, 0.88);
+    text-align: center;
+    box-shadow: 0 15px 8px -6px black;
+    border-radius: 10px;
+}
+
 .card {
     margin-top: 75px;
     height: auto;

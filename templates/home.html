@@ -33,7 +33,7 @@
       {% for u in user.admirers.all %}
       {% for post in u.post_set.all %}
       <ul style="list-style-type:none">
-      <li><img src="{{post.image.url}}" alt="posts" class="img-thumbnail post-img"></li>
+      <li><a href="/posts/post/{{post.id}}"><img src="{{post.image.url}}" alt="posts" class="img-thumbnail post-img"></a></li>
       </ul>
       {% endfor %}
       {% endfor %}
