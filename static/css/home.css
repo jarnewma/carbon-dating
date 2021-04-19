@@ -49,11 +49,20 @@ body {
     margin-top: 25px;
 }
 
+.avi-small {
+    vertical-align: left;
+    width: 125px;
+    height: 125px;
+}
+
 .post-img {
     vertical-align: middle;
     text-align: center;
-    width: 450px;
-    height: 400px;
+    justify-content: center;
+    width: 350px;
+    height: 300px;
+    margin-left: 100px;
+    margin-bottom: 25px;
 }
 
 .button-list {
@@ -70,4 +79,9 @@ a:active {
     text-decoration: none;
     color: inherit;
     cursor: pointer;
+}
+
+.recent-text {
+    float: right;
+    text-align: center;
 }
