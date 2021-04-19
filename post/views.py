@@ -5,6 +5,8 @@ from post.forms import PostForm
 # from .models import NewAdmirer
 from django.utils import timezone
 from django.shortcuts import get_object_or_404
+from django.views.generic import DeleteView
+from django.urls import reverse_lazy
 
 
 def post_detail(request, id):
@@ -31,3 +33,9 @@ def new_post(request):
             return redirect(reverse("homepage"))
     form = PostForm()
     return render(request, "../templates/post/post_form.html", {"form": form})
+
+
+class DeletePost(DeleteView):
+    model = Post
+    template_name = 'post/delete_post.html'
+    success_url = reverse_lazy('homepage')
