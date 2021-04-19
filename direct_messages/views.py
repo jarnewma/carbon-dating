@@ -3,6 +3,7 @@ from django.views import View
 from django.contrib.auth.mixins import LoginRequiredMixin
 from author.models import Author
 from direct_messages.models import Message
+from django.utils import timezone
 
 
 # Create your views here.
@@ -18,7 +19,8 @@ class MessagesView(LoginRequiredMixin, View):
         messages = messages_sent.union(
             messages_received).order_by("created_at")
         return render(request, "messages/direct_messages.html", {"messages": messages,
-                                                                 "profile_pic": matched_user.profilepic})
+                                                                 "profile_pic": matched_user.profilepic,
+                                                                 "convert_time": timezone.deactivate})
 
     def post(self, request, username):
         content = request.POST.get("content")

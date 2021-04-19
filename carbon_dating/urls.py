@@ -45,6 +45,7 @@ urlpatterns = [
     path('profile_admire/<int:user_id>/', author_views.profile_admire_view),
     path('change_profile/', author_views.change_profile, name="change_profile"),
     path('password/', author_views.PasswordsChangeView.as_view(template_name="change_password.html")),
+    path('tz_detect/', include('tz_detect.urls')),
     *messages_urls,
 ]
 

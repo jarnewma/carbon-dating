@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'comment',
     'new_admirers',
     'crispy_forms',
+    'tz_detect',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -62,6 +63,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'tz_detect.middleware.TimezoneMiddleware',
 ]
 
 ROOT_URLCONF = 'carbon_dating.urls'
