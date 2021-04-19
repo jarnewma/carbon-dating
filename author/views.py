@@ -26,8 +26,11 @@ def author_profile(request, user_id):
 @login_required
 def home_view(request):
     posts = Post.objects.all().order_by("-timestamp")[:5]
+    new_admirers = NewAdmirer.objects.filter(admirer=request.user).order_by("viewed")[:10]
+    # breakpoint()
     context = {
-        "posts": posts
+        "posts": posts,
+        "recent": new_admirers
     }
     return render(request, 'home.html', context)
 
