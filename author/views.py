@@ -56,9 +56,11 @@ def admire_view(request, user_id):
     admirer = Author.objects.get(id=request.user.id)
     if admire_user not in admirer.admirers.all():
         admirer.admirers.add(admire_user)
+        NewAdmirer.objects.create(admirer=admire_user, admiring=request.user)
         admirer.save()
     else:
         admirer.admirers.remove(admire_user)
+        NewAdmirer.objects.get(admirer=admire_user, admiring=request.user).delete()
         admirer.save()
     return redirect(reverse("explore"), args=[user_id])
 

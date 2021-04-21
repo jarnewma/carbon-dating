@@ -22,40 +22,38 @@
       <div class="button-list">
       <button type="button" class="btn btn-outline-dark btn-lg"><a href="/explore/">Explore <i class="fa fa-arrow-right" aria-hidden="true"></i></a></button>
       </div>
-      <div class="button-list">
+      <!-- <div class="button-list">
       <button type="button" class="btn btn-outline-dark btn-lg">Chats <i class="fa fa-arrow-right" aria-hidden="true"></i></button>
       
-      </div>
+      </div> -->
     </div>
 
     <div class="column border-end border-secondary" style="min-height: min-content;" >
       <h1 class="display-3" style="text-align:center;"><u>Recent Posts</u></h1>
       {% for u in user.admirers.all %}
       {% for post in u.post_set.all %}
-<<<<<<< HEAD
-      <ul style="list-style-type:none">
-      <li><a href="/posts/post/{{post.id}}"><img src="{{post.image.url}}" alt="posts" class="img-thumbnail post-img"></a></li>
-      </ul>
-=======
       
      <a href="/posts/post/{{post.id}}/"><img src="{{post.image.url}}" alt="posts" class="img-thumbnail post-img"></a>
       
->>>>>>> 8287a65b50e45a6ef420c305692ac1474d76def9
       {% endfor %}
       {% endfor %}
 
     </div>
 
     <div class="column">
-      <h1 class="display-3" style="text-align:center;"><u>Recent Admirers</u></h1>
+      <h1 class="display-3" style="text-align:center;">
+        <u>Recent Admirers</u>
+      </h1>
+      <div>
      {% for r in recent %}
      <br>
-     <div>
+     
     <a href="/author_profile/{{r.admiring.id}}/"><img alt="Profile Pic" class="rounded-circle avi-small" src="{{r.admiring.profilepic.url}}"></a>
-    <h2 class="recent-text">{{r.admiring.username}} is now admiring you!</h2>  </div>
-    </div>
-     {% endfor %}
+    <h2 class="recent-text">{{r.admiring.username}} is now admiring you!</h2>
+  </div>
    
+     {% endfor %}
+    </div>
   </section>  
 
 
